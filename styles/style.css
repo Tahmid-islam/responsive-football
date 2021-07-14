@@ -1,13 +1,44 @@
-/* -------------------------------fonts------------------------------ */
+/* -------------------------------Google fonts------------------------------ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-/*------------------------------- common styles or utilities--------------------------- */
+/*------------------------------------------------- common styles or utilities ----------------------------------------- */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0px;
 }
+button {
+  background-color: #e02c6d;
+  width: 168px;
+  height: 44px;
+  padding: 10px 24px;
+}
 
-/*--------------------------------- header section----------------------------- */
+button a {
+  text-decoration: none;
+  color: white;
+  padding-right: 10px;
+}
+
+/* ---------------------------------------------------animation part---------------------------------------------------------*/
+@keyframes color-change {
+  0% {
+    background-color: #2d25a0;
+  }
+
+  25% {
+    background-color: #0984e3;
+  }
+
+  50% {
+    background-color: #00cec9;
+  }
+
+  100% {
+    background-color: #2d25a0;
+  }
+}
+
+/*-------------------------------------------------------- header section --------------------------------------------------------- */
 
 .header {
   background-color: #2d25a0;
@@ -19,9 +50,16 @@ body {
   height: 677px;
 }
 
+.header:hover {
+  animation: color-change 5s ease-in-out 0.5s;
+}
+
+.header:hover .header-image img {
+  transform: scale(0.8) rotate(360deg);
+  transition: transform 6s ease-in-out, rotate 5s ease-in-out;
+}
+
 .header-contents {
-  display: flex;
-  flex-direction: column;
   align-items: left;
 }
 
@@ -38,19 +76,6 @@ body {
   gap: 27px;
 }
 
-.header-title button {
-  background-color: #e02c6d;
-  width: 168px;
-  height: 44px;
-  padding: 10px 24px;
-}
-
-button a {
-  text-decoration: none;
-  color: white;
-  padding-right: 10px;
-}
-
 .fa-arrow-right {
   color: white;
 }
@@ -65,7 +90,7 @@ button a {
 
 /*-------------------------------------------------------------------- main section------------------------------------------------------------- */
 
-/*------------------ player info section------------------------------- */
+/*----------------------------------------------player info section----------------------------------------------- */
 
 .players {
   display: grid;
@@ -94,7 +119,107 @@ button a {
   line-height: 26px;
 }
 
-/*-----------------------------------------------footer---------------------------------------- */
+/*----------------------------- highlights info section-----------------------------------*/
+
+.highlights-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-left: 182px;
+  margin-right: 182px;
+  margin-top: 70px;
+}
+
+.highlights-title h3 {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.highlights-picture img {
+  width: 567px;
+  height: 427px;
+}
+
+/*-----------------------------------------------latest Photos section with transition and transform---------------------------------------- */
+.photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.latest-photos h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.photos img {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  margin-bottom: 40px;
+  border: 10px;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.photos:hover img {
+  transform: scale(1.2);
+  transition: transform 4s ease;
+}
+
+/*---------------------------------------Subscribe section with transition transform using form and svg background------------------------------------ */
+.subscribe {
+  border: 3px solid #2d25a0;
+  margin: 20px;
+  overflow: hidden;
+  background-image: url(../images/wave.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.subscribe h3 {
+  text-align: center;
+}
+
+.subscribe-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subscribe img {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  margin-bottom: 40px;
+  border: 10px;
+}
+
+.subscribe:hover img {
+  transform: scale(1.2);
+  transition: transform 3s ease-in-out;
+}
+
+.form-content form {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-content input {
+  width: 50%;
+  height: 30px;
+  margin-top: 10px;
+}
+
+::placeholder {
+  color: #2d25a0;
+  text-align: center;
+}
+
+/*-----------------------------------------------footer section--------------------------------------------- */
 
 .footer-items {
   display: flex;
@@ -121,4 +246,169 @@ button a {
   padding: 10px;
   right: 81.18%;
   color: #969bab;
+}
+
+/*------------------------------------------------------------------Media Queries----------------------------------------------------- */
+
+/*--------------------------------------------Mobile devices-----------------------------------*/
+
+@media only screen and (max-width: 688px) {
+  .header {
+    flex-direction: column;
+    width: 100%;
+  }
+  .header-title {
+    width: 278px;
+    height: 138px;
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    margin-top: 102px;
+    padding-bottom: 25px;
+    padding-left: 16px;
+  }
+  .header-image img {
+    width: 95%;
+    height: 259.17px;
+    margin-top: 50px;
+    margin-left: 16px;
+    margin-bottom: 61px;
+    justify-content: center;
+  }
+
+  .players,
+  .highlights-info {
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px 15px;
+  }
+
+  .player,
+  .highlights-title {
+    width: 300px;
+    height: 474px;
+    margin: 12px 16px;
+  }
+
+  .highlights-title {
+    height: 370px;
+  }
+
+  .highlights-title h3 {
+    font-size: 30px;
+  }
+
+  .highlights-picture img {
+    width: 328px;
+    height: 248px;
+  }
+
+  .footer-items {
+    margin: 10px;
+  }
+
+  .footer-logo img {
+    width: 150px;
+    height: 63px;
+    margin-top: 29px;
+  }
+}
+
+/*-------------------------------tablet devices---------------------------------------- */
+
+@media only screen and (min-width: 688px) and (max-width: 992px) {
+  .header {
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+  }
+
+  .header-title {
+    width: 278px;
+    height: 138px;
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    margin-top: 102px;
+    padding-bottom: 25px;
+    padding-left: 16px;
+  }
+
+  .highlights-info {
+    margin: 30px;
+    padding: 30px;
+  }
+  .header-image img,
+  .highlights-info img {
+    width: 95%;
+    height: 259.17px;
+    margin-top: 50px;
+    margin-left: 16px;
+    margin-bottom: 61px;
+    justify-content: center;
+  }
+
+  .players,
+  .highlights-info {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0px 0px;
+  }
+}
+
+/*-------------------------------- Large Screen devices or lager than tablet devices------------------------------------------ */
+
+@media only screen and (min-width: 993px) and (max-width: 1300px) {
+  .header {
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+  }
+
+  .header-title {
+    width: 278px;
+    height: 138px;
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    margin-top: 102px;
+    padding-bottom: 25px;
+    padding-left: 16px;
+  }
+  .header-image img {
+    width: 350px;
+    height: 300px;
+    margin-top: 50px;
+    margin-left: 16px;
+    margin-bottom: 61px;
+    justify-content: center;
+  }
+
+  .players {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0px 0px;
+  }
+
+  .player {
+    width: 280px;
+    height: 474px;
+    margin: 24px 5px;
+  }
+
+  .highlights-info {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    justify-content: center;
+    margin-bottom: 29px;
+  }
+  .highlights-title {
+    margin-top: 0px;
+  }
+  .highlights-info img {
+    margin-top: 20px;
+  }
 }
