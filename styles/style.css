@@ -141,21 +141,31 @@ button a {
   height: 427px;
 }
 
-/*-----------------------------------------------latest Photos section with transition and transform---------------------------------------- */
-.photos {
+/*-------------------------latest Photos and latest videos section with transition and transform------------------------------- */
+.photos-videos {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.latest-photos h3 {
+.photos-videos h3 {
   font-size: 36px;
   margin-bottom: 10px;
   font-weight: bold;
   text-align: center;
 }
 
-.photos img {
+.photos,
+.videos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.photos img,
+iframe {
   width: 200px;
   height: 200px;
   margin: 30px;
@@ -169,7 +179,7 @@ button a {
   transition: transform 4s ease;
 }
 
-/*---------------------------------------Subscribe section with transition transform using form and svg background------------------------------------ */
+/*------------------------------Subscribe section with transition transform using form and svg background------------------------------- */
 .subscribe {
   border: 3px solid #2d25a0;
   margin: 20px;
@@ -302,6 +312,12 @@ button a {
   .highlights-picture img {
     width: 328px;
     height: 248px;
+  }
+
+  .latest-videos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .footer-items {
